@@ -1,112 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport"
-    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>ModaClick - Login | Tu Estilo en un Click</title>
-  <link rel="icon" href="res/index/logo.png">
-  <link href="css/app.css" rel="stylesheet">
-  <script defer="" referrerpolicy="origin" src="js/s.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ModaClick | Tu Estilo en un Click</title>
+  <link rel="icon" type="image/svg+xml" href="assets/img/marca-icono.svg">
+
+  <!-- Estilos: base primero (define las variables), luego componentes y los de la página -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages/login.css">
 </head>
 
-<!-- ===== Page Wrapper Start ===== -->
-<div class="relative z-1 bg-white p-6 sm:p-0 dark:bg-gray-900">
-  <div class="relative flex h-screen w-full flex-col justify-center sm:p-0 lg:flex-row dark:bg-gray-900">
-    <!-- Form -->
-    <div class="flex w-full flex-1 flex-col lg:w-1/2">
-      <div class="mx-auto w-full max-w-md pt-10">
+<body class="login-body">
 
-      </div>
-      <div class="mx-auto flex w-full max-w-md flex-1 flex-col justify-center">
-        <div>
-          <div class="mb-5 sm:mb-8">
-            <h1 class="text-title-sm sm:text-title-md mb-2 font-semibold text-gray-800 dark:text-white/90">
-              Bienvenido
-            </h1>
-            <p class="text-sm text-gray-500 dark:text-gray-400">
-              ¡Ingresa tu Usuario y Clave para iniciar sesión!
-            </p>
-          </div>
-          <div>
-            <div class="relative py-3 sm:py-5">
-            </div>
-            <form id="loginForm">
-              <div class="space-y-5">
-                <!-- Usuario -->
-                <div>
-                  <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                    Usuario<span class="text-error-500">*</span>
-                  </label>
-                  <input type="email" id="email" name="email" placeholder="Ingresa tu Usuario"
-                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
-                </div>
-                <!-- Clave -->
-                <div>
-                  <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                    Clave<span class="text-error-500">*</span>
-                  </label>
-                  <div class="relative">
-                    <input id="password" placeholder="Ingresa tu Clave"
-                      class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent py-2.5 pr-11 pl-4 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30"
-                      type="password">
+  <!-- Panel izquierdo: marca -->
+  <section class="login-marca">
+    <img src="assets/img/marca-login.svg" alt="ModaClick" class="login-logo" width="320" height="76">
 
-                  </div>
-                </div>
-                <p id="loginError" class="hidden text-sm text-error-500">Usuario o clave incorrectos.</p>
-                <div class="flex items-center justify-between">
-                  <a href="https://demo.tailadmin.com/reset-password.html"
-                    class="text-brand-500 hover:text-brand-600 dark:text-brand-400 text-sm">¿Olvidaste tu Clave?</a>
-                </div>
-                <!-- Button -->
-                <div>
-                  <button
-                    class="bg-brand-500 shadow-theme-xs hover:bg-brand-600 flex w-full items-center justify-center rounded-lg px-4 py-3 text-sm font-medium text-white transition">
-                    Iniciar Sesión
-                  </button>
-                </div>
-              </div>
-            </form>
-            <div class="mt-5">
-              <p class="text-center text-sm font-normal text-gray-700 sm:text-start dark:text-gray-400">
-                ¿No tienes una cuenta?
-                <a href="https://demo.tailadmin.com/signup.html"
-                  class="text-brand-500 hover:text-brand-600 dark:text-brand-400">Registrarse</a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <img src="assets/img/decoracion/grid.svg" alt="" class="login-deco deco-1">
+    <img src="assets/img/decoracion/grid.svg" alt="" class="login-deco deco-2">
+
+    <div class="login-marca-texto">
+      <h2>Tu Estilo en un Click</h2>
+      <p>Tienda virtual de prendas de vestir y accesorios.</p>
     </div>
+  </section>
 
-    <div class="bg-brand-950 relative hidden h-full w-full items-center lg:grid lg:w-1/2 dark:bg-white/5">
-      <div class="z-1 flex items-center justify-center">
-        <!-- ===== Common Grid Shape Start ===== -->
-        <div class="absolute right-0 top-0 -z-1 w-full max-w-[250px] xl:max-w-[450px]">
-          <img src="res/index/grid-01.svg" alt="grid">
-        </div>
-        <div class="absolute bottom-0 left-0 -z-1 w-full max-w-[250px] rotate-180 xl:max-w-[450px]">
-          <img src="res/index/grid-01.svg" alt="grid">
+  <!-- Panel derecho: formulario -->
+  <main class="login-formulario">
+    <div class="login-caja">
+
+      <h1>Bienvenido</h1>
+      <p class="login-subtitulo">Ingresa tu usuario y clave para iniciar sesión.</p>
+
+      <form id="form-login" novalidate>
+        <div class="campo">
+          <label for="usuario">Usuario <span class="obligatorio">*</span></label>
+          <input type="email" id="usuario" name="usuario" placeholder="Ingresa tu usuario" autocomplete="username">
         </div>
 
-        <div class="flex max-w-xs flex-col items-center">
-          <a href="https://demo.tailadmin.com/index.html" class="mb-4 block">
-            <img src="res/index/logo.png" alt="Logo">
-          </a>
-          <p class="text-center text-gray-400 dark:text-white/60">
-            Tienda Virtual de Prendas de Vestir y Accesorios
-          </p>
+        <div class="campo">
+          <label for="clave">Clave <span class="obligatorio">*</span></label>
+          <input type="password" id="clave" name="clave" placeholder="Ingresa tu clave" autocomplete="current-password">
         </div>
-      </div>
+
+        <p class="error-formulario" id="login-error"></p>
+
+        <button type="submit" class="btn btn-primario btn-bloque">Iniciar sesión</button>
+      </form>
+
+      <p class="login-pie">
+        ¿No tienes una cuenta? <a href="pages/catalogo.html">Explora como invitado</a>
+      </p>
     </div>
+  </main>
 
-  </div>
-</div>
-<!-- ===== Page Wrapper End ===== -->
-<script defer="" src="js/bundle.js"></script>
-<script defer="" src="js/index.js"></script>
+  <!-- Scripts: utils primero (lo usan los demás), luego el de la página -->
+  <script defer src="js/utils.js"></script>
+  <script defer src="js/datos/usuarios.js"></script>
+  <script defer src="js/pages/login.js"></script>
 </body>
 
 </html>

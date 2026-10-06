@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo | ModaClick</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/img/marca-icono.svg">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages/catalogo.css">
+</head>
+
+<body data-titulo="Catálogo">
+
+  <div class="preloader" id="preloader"><div></div></div>
+
+  <div class="app">
+
+    <!-- El sidebar lo dibuja js/layout.js -->
+    <aside class="app-sidebar" id="app-sidebar"></aside>
+
+    <div class="app-contenido">
+
+      <!-- El header lo dibuja js/layout.js -->
+      <header class="app-header" id="app-header"></header>
+
+      <main class="app-main">
+        <div class="contenedor">
+
+          <div class="encabezado-pagina">
+            <h2 class="titulo-pagina">Catálogo</h2>
+            <nav class="migas" aria-label="Ruta de navegación">
+              <a href="dashboard-admin.html">Inicio</a>
+              <span aria-hidden="true">/</span>
+              <span class="actual" aria-current="page">Catálogo</span>
+            </nav>
+          </div>
+
+          <!-- Portada del catálogo -->
+          <section class="catalogo-portada">
+            <h3>Ropa y accesorios para tu estilo</h3>
+            <p>Descubre camisetas, polos, pantalones, vestidos, calzado y mucho más.</p>
+          </section>
+
+          <!-- Filtros -->
+          <section class="catalogo-filtros">
+            <label class="catalogo-busqueda">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="search" id="filtro-texto" placeholder="Buscar por producto, marca o categoría...">
+            </label>
+
+            <label class="catalogo-select">
+              <span class="solo-lectores">Ordenar por</span>
+              <select id="filtro-orden">
+                <option value="destacados">Destacados</option>
+                <option value="precio-asc">Precio: menor a mayor</option>
+                <option value="precio-desc">Precio: mayor a menor</option>
+                <option value="nombre">Nombre (A-Z)</option>
+              </select>
+            </label>
+          </section>
+
+          <!-- Chips de categoría -->
+          <div class="catalogo-chips" id="filtro-categorias"></div>
+
+          <!-- Aquí se insertan las tarjetas de producto desde js/pages/catalogo.js -->
+          <div class="rejilla-productos" id="rejilla-productos"></div>
+
+          <!-- Mensaje cuando no hay resultados -->
+          <div class="estado-vacio oculto" id="sin-resultados">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <h3>No encontramos productos</h3>
+            <p>Prueba con otro equipo o quita los filtros aplicados.</p>
+          </div>
+
+          <div class="catalogo-pie">
+            <p class="conteo" id="conteo-productos" role="status" aria-live="polite"></p>
+            <label class="catalogo-select">Productos por página
+              <select id="productos-por-pagina"><option value="12">12</option><option value="24">24</option><option value="48">48</option></select>
+            </label>
+          </div>
+          <nav id="paginacion-catalogo" class="paginacion-catalogo" aria-label="Páginas del catálogo"></nav>
+
+        </div>
+      </main>
+
+      <footer class="app-footer" id="app-footer"></footer>
+    </div>
+  </div>
+
+  <div class="capa" id="capa"></div>
+
+  <script defer src="../js/utils.js"></script>
+  <script defer src="../js/datos/usuarios.js"></script>
+  <script defer src="../js/auth.js"></script>
+  <script defer src="../js/datos/productos.js"></script>
+  <script defer src="../js/datos/carrito.js"></script>
+  <script defer src="../js/layout.js"></script>
+  <script defer src="../js/app.js"></script>
+  <script defer src="../js/pages/catalogo.js"></script>
+</body>
+</html>

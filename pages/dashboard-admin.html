@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Administrativo | ModaClick</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/img/marca-icono.svg">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages/dashboard.css">
+</head>
+
+<body data-titulo="Panel administrativo" data-buscador="no">
+
+  <div class="preloader" id="preloader"><div></div></div>
+
+  <div class="app">
+
+    <aside class="app-sidebar" id="app-sidebar"></aside>
+
+    <div class="app-contenido">
+
+      <header class="app-header" id="app-header"></header>
+
+      <main class="app-main">
+        <div class="contenedor">
+
+          <div class="encabezado-pagina">
+            <h2 class="titulo-pagina">Panel administrativo</h2>
+            <nav class="migas" aria-label="Ruta de navegación">
+              <span class="actual" aria-current="page">Resumen</span>
+            </nav>
+          </div>
+
+          <!-- Métricas -->
+          <section class="rejilla rejilla-4 dashboard-metricas" id="metricas"></section>
+
+          <!-- Gráficos -->
+          <section class="rejilla dashboard-graficos">
+            <div class="tarjeta">
+              <div class="tarjeta-cabecera">
+                <h3>Ventas por mes</h3>
+                <span class="texto-pequeno texto-suave">Últimos 7 meses</span>
+              </div>
+              <div class="tarjeta-cuerpo">
+                <div id="grafico-ventas"></div>
+              </div>
+            </div>
+
+            <div class="tarjeta">
+              <div class="tarjeta-cabecera">
+                <h3>Pedidos por estado</h3>
+                <span class="texto-pequeno texto-suave">Distribución actual</span>
+              </div>
+              <div class="tarjeta-cuerpo">
+                <div id="grafico-estados"></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Tabla de pedidos recientes -->
+          <section class="tarjeta dashboard-tabla">
+            <div class="tarjeta-cabecera">
+              <h3>Pedidos recientes</h3>
+              <a href="pedidos.html" class="btn btn-secundario btn-pequeno">Ver todos</a>
+            </div>
+
+            <div class="tarjeta-cuerpo">
+              <div class="tabla-envoltura">
+                <table class="tabla">
+                  <thead>
+                    <tr>
+                      <th>Código</th>
+                      <th>Cliente</th>
+                      <th>Fecha</th>
+                      <th>Entrega</th>
+                      <th>Total estimado</th>
+                      <th>Estado</th>
+                    </tr>
+                  </thead>
+                  <tbody id="cuerpo-pedidos"></tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </main>
+
+      <footer class="app-footer" id="app-footer"></footer>
+    </div>
+  </div>
+
+  <div class="capa" id="capa"></div>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/apexcharts@3.54.1/dist/apexcharts.min.js"></script>
+  <script defer src="../js/utils.js"></script>
+<script defer src="../js/tablas.js"></script>
+  <script defer src="../js/datos/usuarios.js"></script>
+  <script defer src="../js/auth.js"></script>
+  <script defer src="../js/datos/pedidos.js"></script>
+  <script defer src="../js/layout.js"></script>
+  <script defer src="../js/app.js"></script>
+  <script defer src="../js/pages/dashboard.js"></script>
+</body>
+</html>

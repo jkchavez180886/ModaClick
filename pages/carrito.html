@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito de Compras | ModaClick</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/img/marca-icono.svg">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages/carrito.css">
+</head>
+
+<body data-titulo="Carrito de compras">
+
+  <div class="preloader" id="preloader"><div></div></div>
+
+  <div class="app">
+
+    <aside class="app-sidebar" id="app-sidebar"></aside>
+
+    <div class="app-contenido">
+
+      <header class="app-header" id="app-header"></header>
+
+      <main class="app-main">
+        <div class="contenedor">
+
+          <div class="encabezado-pagina">
+            <div>
+              <h2 class="titulo-pagina">Tu carrito</h2>
+              <p>Revisa tus prendas y elige cómo continuar tu compra.</p>
+            </div>
+            <nav class="migas" aria-label="Ruta de navegación">
+              <a href="dashboard-admin.html">Inicio</a>
+              <span aria-hidden="true">/</span>
+              <span class="actual" aria-current="page">Carrito</span>
+            </nav>
+          </div>
+
+          <div class="columnas carrito-columnas">
+
+            <!-- Artículos: los pinta js/pages/carrito.js -->
+            <section class="carrito-lista" aria-labelledby="titulo-articulos">
+              <div class="carrito-lista-cabecera">
+                <h3 id="titulo-articulos">Productos seleccionados</h3>
+                <span class="etiqueta" id="carrito-conteo" role="status"></span>
+              </div>
+              <div class="carrito-articulos" id="carrito-articulos"></div>
+            </section>
+
+            <!-- Resumen de la compra -->
+            <aside class="tarjeta panel-lateral" id="carrito-resumen">
+              <div class="tarjeta-cuerpo">
+                <h3 class="carrito-resumen-titulo">Resumen de compra</h3>
+
+                <a href="catalogo.html" class="btn btn-secundario btn-bloque carrito-seguir">
+                  <i class="fa-solid fa-arrow-left"></i> Seguir comprando
+                </a>
+
+                <dl class="carrito-totales">
+                  <div>
+                    <dt>Subtotal</dt>
+                    <dd id="resumen-subtotal">S/ 0.00</dd>
+                  </div>
+                  <div>
+                    <dt>Envío estimado</dt>
+                    <dd id="resumen-envio">S/ 0.00</dd>
+                  </div>
+                  <div class="carrito-totales-final">
+                    <dt>Total</dt>
+                    <dd id="resumen-total">S/ 0.00</dd>
+                  </div>
+                </dl>
+
+                <button type="button" class="btn btn-primario btn-bloque" id="btn-checkout">
+                  Continuar con el pedido <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </button>
+
+                <button type="button" class="btn btn-secundario btn-bloque carrito-vaciar" id="btn-vaciar">
+                  <i class="fa-regular fa-trash-can" aria-hidden="true"></i> Vaciar carrito
+                </button>
+              </div>
+            </aside>
+
+          </div>
+        </div>
+      </main>
+
+      <footer class="app-footer" id="app-footer"></footer>
+    </div>
+  </div>
+
+  <div class="capa" id="capa"></div>
+
+  <script defer src="../js/utils.js"></script>
+  <script defer src="../js/datos/usuarios.js"></script>
+  <script defer src="../js/auth.js"></script>
+  <script defer src="../js/datos/productos.js"></script>
+  <script defer src="../js/datos/carrito.js"></script>
+  <script defer src="../js/layout.js"></script>
+  <script defer src="../js/app.js"></script>
+  <script defer src="../js/pages/carrito.js"></script>
+</body>
+</html>

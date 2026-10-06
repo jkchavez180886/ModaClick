@@ -1,0 +1,29 @@
+.productos-gestion { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(250px, 1fr); gap: 24px; align-items: start; }
+.productos-vista { position: sticky; top: calc(var(--alto-header) + 24px); }
+.productos-vista .tarjeta-cuerpo { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.productos-preview-imagen { width: 100%; aspect-ratio: 1; object-fit: contain; border-radius: var(--radio); background: var(--superficie-2); }
+.productos-preview-precio { color: var(--marca-500); font-size: 1.5rem; }
+.productos-preview-ayuda { border-top: 1px solid var(--borde); padding-top: 14px; font-size: .85rem; }
+.productos-form-acciones { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.productos-listado { margin-top: 24px; }
+.productos-listado .tarjeta-cabecera .campo { min-width: min(100%, 240px); }
+.productos-gestion > *, .productos-vista .tarjeta-cuerpo > * { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+.productos-preview-imagen { flex-shrink: 0; }
+.productos-fila img { flex-shrink: 0; }
+.productos-listado .tabla { min-width: 650px; }
+.productos-listado .conteo { margin-top: 12px; }
+.productos-fila { display: flex; align-items: center; gap: 12px; }
+.productos-fila img { width: 48px; height: 56px; object-fit: contain; background: var(--superficie-2); border-radius: var(--radio); }
+.productos-fila small { display: block; color: var(--texto-suave); }
+.productos-fila .etiqueta-destacado { margin-top: 6px; }
+.productos-vista.vista-destacada { border-color: var(--destacado-borde); box-shadow: 0 0 0 1px var(--destacado-borde), var(--sombra-md); }
+.campo-check label { display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 14px; border: 1px solid var(--destacado-borde); border-radius: var(--radio); background: var(--destacado-suave); cursor: pointer; }
+.campo-check input[type="checkbox"] { width: 22px; height: 22px; padding: 0; flex-shrink: 0; accent-color: var(--marca-500); cursor: pointer; }
+.campo-check label strong { color: var(--texto); font-size: .9rem; }
+.campo-check label small { display: block; margin-top: 4px; line-height: 1.5; }
+.producto-resultado { margin-top: 16px; padding: 12px; border-radius: var(--radio); background: var(--exito-suave); color: var(--texto); }
+#form-producto small { color: var(--texto-suave); font-size: .8rem; }
+#form-producto :focus-visible { outline: 2px solid var(--marca-500); outline-offset: 3px; }
+@media (max-width: 1024px) { .productos-gestion { grid-template-columns: 1fr; } .productos-vista { position: static; } .productos-preview-imagen { max-height: 280px; } }
+@media (max-width: 520px) { .productos-form-acciones { flex-direction: column; } .productos-form-acciones .btn { width: 100%; } }
+@media (max-width: 520px) { .productos-listado .tarjeta-cabecera .campo { width: 100%; } }

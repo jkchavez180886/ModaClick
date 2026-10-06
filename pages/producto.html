@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle del producto | ModaClick</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/img/marca-icono.svg">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages/catalogo.css">
+  <link rel="stylesheet" href="../css/pages/producto.css">
+</head>
+
+<body data-titulo="Detalle del producto">
+
+  <div class="preloader" id="preloader"><div></div></div>
+
+  <div class="app">
+
+    <aside class="app-sidebar" id="app-sidebar"></aside>
+
+    <div class="app-contenido">
+
+      <header class="app-header" id="app-header"></header>
+
+      <main class="app-main">
+        <div class="contenedor">
+
+          <nav class="migas producto-migas" aria-label="Ruta de navegación">
+            <a href="dashboard-admin.html">Inicio</a>
+            <span aria-hidden="true">/</span>
+            <a href="catalogo.html">Catálogo</a>
+            <span aria-hidden="true">/</span>
+            <span class="actual" aria-current="page" id="miga-nombre">Producto</span>
+          </nav>
+
+          <!-- Se completa todo desde js/pages/producto.js -->
+          <div class="columnas producto-columnas" id="producto-contenido">
+            <section class="producto-galeria">
+              <div class="producto-imagen-grande">
+                <img id="producto-imagen" src="" alt="">
+              </div>
+              <p class="producto-id" id="producto-referencia"></p>
+            </section>
+
+            <section class="producto-info">
+              <span class="producto-categoria" id="producto-categoria"></span>
+              <span class="etiqueta etiqueta-destacado oculto" id="producto-destacado"><span aria-hidden="true">★</span> Producto destacado</span>
+              <h1 class="producto-titulo" id="producto-nombre"></h1>
+              <p class="producto-precio-grande" id="producto-precio"></p>
+              <p class="producto-resumen" id="producto-descripcion"></p>
+
+              <div class="producto-bloque">
+                <p class="producto-bloque-titulo">Talla</p>
+                <div class="producto-tallas-grandes" id="producto-tallas"></div>
+              </div>
+
+              <div class="producto-bloque">
+                <p class="producto-bloque-titulo">Cantidad</p>
+                <div class="stepper">
+                  <button type="button" id="menos-cantidad" aria-label="Restar uno">−</button>
+                  <input type="number" id="cantidad" value="1" min="1" max="99" aria-label="Cantidad">
+                  <button type="button" id="mas-cantidad" aria-label="Sumar uno">+</button>
+                </div>
+              </div>
+
+              <p class="producto-stock" id="producto-stock"></p>
+
+              <div class="producto-acciones-grandes">
+                <button type="button" class="btn btn-primario" id="agregar-carrito">
+                  <i class="fa-solid fa-cart-plus"></i> Agregar al carrito
+                </button>
+                <button type="button" class="btn btn-secundario" id="comprar-ahora">
+                  Comprar ahora
+                </button>
+              </div>
+
+              <ul class="producto-ventajas">
+                <li><i class="fa-solid fa-truck-fast"></i> Delivery en todo Lima</li>
+                <li><i class="fa-solid fa-rotate-left"></i> Cambios hasta 7 días</li>
+                <li><i class="fa-solid fa-shield-halved"></i> Compra 100% segura</li>
+              </ul>
+            </section>
+          </div>
+
+          <!-- Productos relacionados -->
+          <section class="producto-relacionados">
+            <h3 class="producto-relacionados-titulo">También te puede interesar</h3>
+            <div class="rejilla-productos" id="productos-relacionados"></div>
+          </section>
+
+          <!-- Si el producto no existe -->
+          <div class="estado-vacio oculto" id="producto-inexistente">
+            <i class="fa-solid fa-box-open"></i>
+            <h3>Producto no encontrado</h3>
+            <p>El producto que buscas ya no está disponible.</p>
+            <a class="btn btn-primario" href="catalogo.html">Volver al catálogo</a>
+          </div>
+
+        </div>
+      </main>
+
+      <footer class="app-footer" id="app-footer"></footer>
+    </div>
+  </div>
+
+  <div class="capa" id="capa"></div>
+
+  <script defer src="../js/utils.js"></script>
+  <script defer src="../js/datos/usuarios.js"></script>
+  <script defer src="../js/auth.js"></script>
+  <script defer src="../js/datos/productos.js"></script>
+  <script defer src="../js/datos/carrito.js"></script>
+  <script defer src="../js/layout.js"></script>
+  <script defer src="../js/app.js"></script>
+  <script defer src="../js/pages/producto.js"></script>
+</body>
+</html>

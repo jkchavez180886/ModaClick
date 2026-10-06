@@ -1,0 +1,50 @@
+/* ==========================================================================
+   pages/dashboard.css — Estilos del panel administrativo
+   (dashboard-admin.html)
+   ========================================================================== */
+
+.dashboard-metricas {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 22px;
+}
+
+.dashboard-metricas .metrica { min-width: 0; height: 100%; }
+.dashboard-metricas .metrica > div:last-child { min-width: 0; }
+.dashboard-metricas .metrica strong { display: block; overflow-wrap: anywhere; }
+
+/* Los gráficos van lado a lado en pantallas grandes */
+.dashboard-graficos {
+  grid-template-columns: 1.35fr 1fr;
+  gap: 22px;
+  margin-top: 22px;
+}
+
+.dashboard-tabla {
+  margin-top: 22px;
+}
+
+/* Altura reservada para los lienzos de ApexCharts */
+.dashboard-graficos [id^="grafico-"] {
+  min-height: 320px;
+}
+
+/* --------------------------------------------------------------------------
+   Adaptación a pantallas medianas
+   -------------------------------------------------------------------------- */
+@media (max-width: 1100px) {
+  .dashboard-graficos {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .dashboard-metricas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .dashboard-metricas {
+    grid-template-columns: 1fr;
+  }
+}

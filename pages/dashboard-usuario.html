@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Panel | ModaClick</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/img/marca-icono.svg">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages/cuentas.css">
+</head>
+
+<body data-titulo="Mi panel">
+
+  <div class="preloader" id="preloader"><div></div></div>
+
+  <div class="app">
+
+    <aside class="app-sidebar" id="app-sidebar"></aside>
+
+    <div class="app-contenido">
+
+      <header class="app-header" id="app-header"></header>
+
+      <main class="app-main"><div class="contenedor"><h2 class="titulo-pagina">Mi cuenta</h2><section class="tarjeta"><div class="tarjeta-cuerpo"><h3>Encuentra tu próximo estilo</h3><p>Consulta el catálogo, realiza tus compras y sigue tus pedidos desde tu cuenta.</p><div class="cuenta-accesos"><a href="catalogo.html" class="btn btn-primario">Ver catálogo</a><a href="mis-pedidos.html" class="btn btn-secundario">Mis pedidos</a><a href="perfil.html" class="btn btn-secundario">Editar perfil</a></div></div></section></div></main>
+
+      <footer class="app-footer" id="app-footer"></footer>
+    </div>
+  </div>
+
+  <div class="capa" id="capa"></div>
+
+  <script defer src="../js/utils.js"></script>
+  <script defer src="../js/datos/usuarios.js"></script>
+  <script defer src="../js/auth.js"></script>
+  <script defer src="../js/layout.js"></script>
+  <script defer src="../js/app.js"></script>
+</body>
+</html>

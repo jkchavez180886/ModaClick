@@ -1,0 +1,278 @@
+/* ==========================================================================
+   pages/catalogo.css — Estilos del catálogo de productos (catalogo.html)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Portada
+   -------------------------------------------------------------------------- */
+.catalogo-portada {
+  background: var(--marca-900);
+  color: #ffffff;
+  border-radius: var(--radio-md);
+  padding: 32px 28px;
+  margin-bottom: 22px;
+}
+
+.catalogo-portada h3 {
+  color: #ffffff;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+}
+
+.catalogo-portada p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 6px;
+  font-size: 0.9rem;
+}
+
+/* --------------------------------------------------------------------------
+   Barra de filtros
+   -------------------------------------------------------------------------- */
+.catalogo-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.catalogo-busqueda {
+  position: relative;
+  flex: 1;
+  min-width: min(100%, 240px);
+}
+
+.catalogo-busqueda i {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--texto-tenue);
+  font-size: 0.85rem;
+  pointer-events: none;
+}
+
+.catalogo-busqueda input {
+  width: 100%;
+  height: 44px;
+  border: 1px solid var(--borde-fuerte);
+  border-radius: var(--radio);
+  background: var(--superficie);
+  padding: 0 14px 0 40px;
+  font-size: 0.88rem;
+  outline: none;
+  transition: border-color var(--transicion), box-shadow var(--transicion);
+}
+
+.catalogo-busqueda input:focus {
+  border-color: var(--marca-400);
+  box-shadow: 0 0 0 3px rgba(70, 95, 255, 0.12);
+}
+
+.catalogo-select select {
+  height: 44px;
+  border: 1px solid var(--borde-fuerte);
+  border-radius: var(--radio);
+  background: var(--superficie);
+  padding: 0 34px 0 13px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--texto);
+  outline: none;
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   Chips de categoría
+   -------------------------------------------------------------------------- */
+.catalogo-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.chip {
+  min-height: 44px;
+  height: auto;
+  padding: 0 15px;
+  border-radius: var(--radio-full);
+  border: 1px solid var(--borde-fuerte);
+  background: var(--superficie);
+  color: var(--texto-suave);
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: background var(--transicion), color var(--transicion),
+    border-color var(--transicion);
+}
+
+.chip:hover {
+  background: var(--gris-100);
+  color: var(--texto);
+}
+
+.chip.activo {
+  background: var(--marca-500);
+  border-color: var(--marca-500);
+  color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   Tarjeta de producto
+   -------------------------------------------------------------------------- */
+.producto {
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow var(--transicion), transform var(--transicion);
+}
+
+.producto:hover {
+  box-shadow: var(--sombra-md);
+  transform: translateY(-2px);
+}
+
+.producto-imagen {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: var(--superficie-2);
+  overflow: hidden;
+}
+
+.producto-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 14px;
+  transition: transform 0.3s ease;
+}
+
+.producto:hover .producto-imagen img {
+  transform: scale(1.05);
+}
+
+.producto-cuerpo {
+  padding: 15px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  flex: 1;
+}
+
+.producto-categoria {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--marca-500);
+}
+
+.producto-nombre {
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.producto-descripcion {
+  font-size: 0.82rem;
+  color: var(--texto-suave);
+  line-height: 1.45;
+}
+
+.producto-precio {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--texto);
+  letter-spacing: -0.02em;
+}
+
+.producto-precio small {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--texto-tenue);
+  letter-spacing: 0;
+}
+
+/* Selector de talla dentro de la tarjeta */
+.producto-tallas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.producto-tallas button {
+  min-width: 44px;
+  height: 44px;
+  padding: 0 8px;
+  border-radius: 6px;
+  border: 1px solid var(--borde-fuerte);
+  background: var(--superficie);
+  color: var(--texto-suave);
+  font-size: 0.76rem;
+  font-weight: 700;
+  transition: background var(--transicion), color var(--transicion),
+    border-color var(--transicion);
+}
+
+.producto-tallas button:hover {
+  border-color: var(--marca-400);
+  color: var(--marca-500);
+}
+
+.producto-tallas button.elegida {
+  background: var(--marca-500);
+  border-color: var(--marca-500);
+  color: #ffffff;
+}
+
+.producto-acciones {
+  margin-top: auto;
+  display: flex;
+  gap: 8px;
+  padding-top: 4px;
+}
+
+.producto-acciones .btn {
+  flex: 1;
+}
+
+/* Agotados: conservar legibilidad y señalar que no tienen acciones disponibles. */
+.producto-destacado { border-color: var(--destacado-borde); box-shadow: 0 0 0 1px var(--destacado-borde), var(--sombra-md); }
+.producto-destacado .producto-cuerpo { background: var(--destacado-suave); }
+.producto-destacado .producto-categoria { color: var(--destacado); }
+.producto-destacado:hover { box-shadow: 0 0 0 1px var(--destacado-borde), var(--sombra-lg); }
+.producto-estado.producto-estado-destacado { background: var(--destacado-suave); color: var(--destacado); border: 1px solid var(--destacado-borde); }
+.producto-agotado { background: var(--superficie-2); }
+.producto-agotado:hover { transform: none; box-shadow: var(--sombra-sm); }
+.producto-agotado .producto-imagen img { filter: grayscale(1); opacity: .65; }
+.producto-agotado:hover .producto-imagen img { transform: none; }
+.producto-agotado .producto-categoria,
+.producto-agotado .producto-precio,
+.producto-agotado .producto-nombre { color: var(--texto-suave); }
+.producto-agotado .btn:disabled,
+.producto-agotado .producto-tallas button:disabled {
+  background: var(--superficie-2); color: var(--texto-suave);
+  border-color: var(--borde-fuerte); box-shadow: none; opacity: 1; cursor: not-allowed;
+}
+.producto-estado {
+  position: absolute; inset: 14px 14px auto auto;
+  padding: 7px 14px; border-radius: var(--radio-full);
+  background: var(--texto-suave); color: var(--superficie); font-size: .8rem; font-weight: 700;
+}
+
+@media (max-width: 420px) {
+  .catalogo-filtros {
+    flex-direction: column;
+  }
+
+  .catalogo-select select {
+    width: 100%;
+  }
+}
+.catalogo-pie { display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:space-between; margin-top:24px; }
+.paginacion-catalogo { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:8px; margin:20px 0; }
+.paginacion-catalogo .btn { min-width:44px; }
+@media(max-width:520px) { .paginacion-catalogo { gap:6px; } .paginacion-catalogo .btn { padding:10px; } }
