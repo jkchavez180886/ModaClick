@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestionar productos | ModaClick</title>
+  <link rel="icon" href="../assets/img/logo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages/productos.css">
+</head>
+<body data-titulo="Gestionar productos">
+  <div class="preloader" id="preloader"><div></div></div>
+  <div class="app">
+    <aside class="app-sidebar" id="app-sidebar"></aside>
+    <div class="app-contenido">
+      <header class="app-header" id="app-header"></header>
+      <main class="app-main">
+        <div class="contenedor">
+          <div class="encabezado-pagina">
+            <div><h2 class="titulo-pagina">Gestionar productos</h2><p>Amplía tu tienda con prendas, calzado y accesorios.</p></div>
+            <nav class="migas" aria-label="Ruta de navegación">
+              <a href="dashboard-admin.html">Inicio</a>
+              <span aria-hidden="true">/</span>
+              <span class="actual" aria-current="page">Productos</span>
+            </nav>
+          </div>
+          <div class="acciones-pagina">
+            <a href="catalogo.html" class="btn btn-primario"><i class="fa-solid fa-book-open" aria-hidden="true"></i> Ver catálogo <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+          <div class="productos-gestion">
+            <section class="tarjeta">
+              <div class="tarjeta-cabecera"><h3>Agregar un producto</h3></div>
+              <form id="form-producto" class="tarjeta-cuerpo">
+                <div class="campos-doble">
+                  <div class="campo ancho-total">
+                    <label for="nuevo-nombre">Nombre del producto *</label>
+                    <input id="nuevo-nombre" type="text" required maxlength="100" placeholder="Ej. Pantalón jean clásico">
+                  </div>
+                  <div class="campo">
+                    <label for="nuevo-categoria">Categoría *</label>
+                    <input id="nuevo-categoria" type="text" list="opciones-categoria" required maxlength="50" placeholder="Elige o escribe una nueva" aria-describedby="ayuda-categoria">
+                    <datalist id="opciones-categoria"></datalist>
+                    <small id="ayuda-categoria">Puedes crear categorías como Vestidos, Calzado o Accesorios.</small>
+                  </div>
+                  <div class="campo">
+                    <label for="nuevo-marca">Marca o equipo</label>
+                    <input id="nuevo-marca" type="text" maxlength="100" placeholder="Opcional">
+                  </div>
+                  <div class="campo">
+                    <label for="nuevo-precio">Precio (S/) *</label>
+                    <input id="nuevo-precio" type="number" required min="0.01" step="0.01" placeholder="89.90">
+                  </div>
+                  <div class="campo">
+                    <label for="nuevo-stock">Stock *</label>
+                    <input id="nuevo-stock" type="number" required min="0" step="1" placeholder="20">
+                  </div>
+                  <div class="campo ancho-total">
+                    <label for="nuevo-tallas">Tallas o variantes *</label>
+                    <input id="nuevo-tallas" type="text" required maxlength="400" value="S, M, L, XL" aria-describedby="ayuda-tallas">
+                    <small id="ayuda-tallas">Sepáralas por comas: S, M, L; 38, 40, 42; o Única para accesorios.</small>
+                  </div>
+                  <div class="campo ancho-total">
+                    <label for="nuevo-descripcion">Descripción</label>
+                    <textarea id="nuevo-descripcion" rows="3" maxlength="1000" placeholder="Material, corte y características del producto"></textarea>
+                  </div>
+                  <div class="campo campo-check ancho-total">
+                    <label for="nuevo-destacado">
+                      <input id="nuevo-destacado" type="checkbox" aria-describedby="ayuda-destacado">
+                      <span><strong>Producto destacado</strong><small id="ayuda-destacado">Resalta en el catálogo y aparece primero al ordenar por Destacados.</small></span>
+                    </label>
+                  </div>
+                  <div class="campo ancho-total">
+                    <label for="nuevo-imagen">Imagen del producto</label>
+                    <input id="nuevo-imagen" type="file" accept="image/png,image/jpeg,image/webp" aria-describedby="ayuda-imagen">
+                    <small id="ayuda-imagen">PNG, JPG o WebP de hasta 1 MB. Sin imagen, se usará una ilustración de prenda.</small>
+                  </div>
+                  <div class="campo ancho-total">
+                    <label for="nuevo-url">O utiliza una URL de imagen</label>
+                    <input id="nuevo-url" type="url" maxlength="2000" placeholder="https://ejemplo.com/prenda.jpg">
+                    <small>Si seleccionas un archivo, se utilizará ese archivo.</small>
+                  </div>
+                </div>
+                <p class="error-formulario" id="error-producto" role="alert" tabindex="-1"></p>
+                <p class="producto-resultado oculto" id="resultado-producto" role="status"></p>
+                <div class="productos-form-acciones">
+                  <button type="reset" class="btn btn-secundario">Limpiar</button>
+                  <button type="submit" id="guardar-producto" class="btn btn-primario"><i class="fa-solid fa-plus"></i> Guardar producto</button>
+                </div>
+              </form>
+            </section>
+            <aside class="tarjeta productos-vista">
+              <div class="tarjeta-cabecera"><h3>Vista previa</h3></div>
+              <div class="tarjeta-cuerpo">
+                <img id="vista-imagen" class="productos-preview-imagen" src="../assets/img/productos/sin-imagen.svg" alt="Vista previa del producto">
+                <span id="vista-categoria" class="etiqueta">Categoría</span>
+                <span id="vista-destacado" class="etiqueta etiqueta-destacado oculto"><span aria-hidden="true">★</span> Destacado</span>
+                <h3 id="vista-nombre">Tu nuevo producto</h3>
+                <p id="vista-descripcion">Así se verá en tu catálogo.</p>
+                <strong id="vista-precio" class="productos-preview-precio">S/ 0.00</strong>
+                <p id="vista-stock">Stock: 0 unidades</p>
+                <p class="productos-preview-ayuda">Al guardar, aparecerá en el catálogo y en el filtro de su categoría.</p>
+              </div>
+            </aside>
+          </div>
+          <section class="tarjeta productos-listado">
+            <div class="tarjeta-cabecera">
+              <h3>Productos del catálogo</h3>
+              <label class="campo"><span class="solo-lectores">Buscar productos</span><input type="search" id="buscar-productos" placeholder="Buscar nombre o categoría"></label>
+            </div>
+            <div class="tarjeta-cuerpo">
+              <div class="tabla-envoltura">
+                <table class="tabla"><thead><tr><th>Producto</th><th>Categoría</th><th>Precio</th><th>Stock</th><th>Tallas</th><th>Detalle</th></tr></thead><tbody id="lista-productos"></tbody></table>
+              </div>
+              <p class="conteo" id="conteo-gestion"></p>
+            </div>
+          </section>
+        </div>
+      </main>
+      <footer class="app-footer" id="app-footer"></footer>
+    </div>
+  </div>
+  <div class="capa" id="capa"></div>
+  <script defer src="../js/utils.js"></script>
+  <script defer src="../js/datos/usuarios.js"></script>
+  <script defer src="../js/auth.js"></script>
+  <script defer src="../js/datos/productos.js"></script>
+  <script defer src="../js/layout.js"></script>
+  <script defer src="../js/app.js"></script>
+  <script defer src="../js/pages/productos.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+.cuenta-form { margin-bottom: 24px; }
+.cuenta-accesos { display:flex; flex-wrap:wrap; gap:12px; margin-top:20px; }
+.cuenta-form .tarjeta-cabecera { flex-wrap:wrap; gap:12px; }
+@media(max-width:600px){ .cuenta-accesos .btn { width:100%; } }

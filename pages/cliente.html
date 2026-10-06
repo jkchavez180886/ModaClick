@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datos del Cliente | ModaClick</title>
+  <link rel="icon" href="../assets/img/logo.png">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages/cliente.css">
+</head>
+
+<body data-titulo="Datos del cliente">
+
+  <div class="preloader" id="preloader"><div></div></div>
+
+  <div class="app">
+
+    <aside class="app-sidebar" id="app-sidebar"></aside>
+
+    <div class="app-contenido">
+
+      <header class="app-header" id="app-header"></header>
+
+      <main class="app-main">
+        <div class="contenedor-ancho">
+
+          <div class="encabezado-pagina">
+            <h2 class="titulo-pagina">Datos del cliente</h2>
+            <nav class="migas" aria-label="Ruta de navegación">
+              <a href="dashboard-admin.html">Inicio</a>
+              <span aria-hidden="true">/</span>
+              <span class="actual" aria-current="page">Datos del cliente</span>
+            </nav>
+          </div>
+
+          <form id="formulario-cliente" novalidate>
+
+            <!-- Información personal -->
+            <section class="tarjeta">
+              <div class="tarjeta-cabecera">
+                <h3>Información personal</h3>
+              </div>
+
+              <div class="tarjeta-cuerpo">
+                <div class="campos-doble">
+                  <div class="campo">
+                    <label for="nombres">Nombres <span class="obligatorio">*</span></label>
+                    <input type="text" id="nombres" placeholder="Ingrese los nombres">
+                  </div>
+
+                  <div class="campo">
+                    <label for="apellidos">Apellidos <span class="obligatorio">*</span></label>
+                    <input type="text" id="apellidos" placeholder="Ingrese los apellidos">
+                  </div>
+
+                  <div class="campo">
+                    <label for="sexo">Sexo</label>
+                    <select id="sexo">
+                      <option value="">Seleccione</option>
+                      <option>Masculino</option>
+                      <option>Femenino</option>
+                      <option>Prefiero no indicar</option>
+                    </select>
+                  </div>
+
+                  <div class="campo">
+                    <label for="fecha-nacimiento">Fecha de nacimiento</label>
+                    <input type="date" id="fecha-nacimiento">
+                  </div>
+
+                  <div class="campo">
+                    <label for="talla-preferida">Talla preferida</label>
+                    <select id="talla-preferida">
+                      <option value="">Seleccione</option>
+                      <option>XS</option>
+                      <option>S</option>
+                      <option>M</option>
+                      <option>L</option>
+                      <option>XL</option>
+                      <option>XXL</option>
+                    </select>
+                  </div>
+
+                  <div class="campo">
+                    <label for="preferencia-contacto">Preferencia de contacto</label>
+                    <select id="preferencia-contacto">
+                      <option value="">Seleccione</option>
+                      <option>WhatsApp</option>
+                      <option>Llamada</option>
+                      <option>Correo</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Información de contacto -->
+            <section class="tarjeta" style="margin-top:22px">
+              <div class="tarjeta-cabecera">
+                <h3>Información de contacto</h3>
+              </div>
+
+              <div class="tarjeta-cuerpo">
+                <div class="campos-doble">
+                  <div class="campo">
+                    <label for="correo">Correo electrónico <span class="obligatorio">*</span></label>
+                    <input type="text" id="correo" placeholder="correo@ejemplo.com">
+                  </div>
+
+                  <div class="campo">
+                    <label for="telefono">Teléfono <span class="obligatorio">*</span></label>
+                    <input type="text" id="telefono" inputmode="numeric" maxlength="9"
+                           placeholder="9 dígitos">
+                  </div>
+
+                  <div class="campo">
+                    <label for="direccion">Dirección</label>
+                    <input type="text" id="direccion" placeholder="Ingrese la dirección">
+                  </div>
+
+                  <div class="campo">
+                    <label for="distrito">Distrito</label>
+                    <input type="text" id="distrito" placeholder="Ingrese el distrito">
+                  </div>
+
+                  <div class="campo">
+                    <label for="ciudad">Ciudad</label>
+                    <input type="text" id="ciudad" placeholder="Ingrese la ciudad">
+                  </div>
+
+                  <div class="campo">
+                    <label for="como-conocio">¿Cómo nos conoció?</label>
+                    <select id="como-conocio">
+                      <option value="">Seleccione</option>
+                      <option>Redes sociales</option>
+                      <option>Recomendación</option>
+                      <option>Búsqueda en internet</option>
+                      <option>Otro</option>
+                    </select>
+                  </div>
+                </div>
+
+                <p class="error-formulario" id="error-cliente"></p>
+              </div>
+            </section>
+
+            <!-- Guardar -->
+            <div class="cliente-acciones">
+              <button type="button" class="btn btn-secundario" id="limpiar-cliente">
+                Limpiar
+              </button>
+              <button type="submit" class="btn btn-primario">Guardar</button>
+            </div>
+
+          </form>
+        </div>
+      </main>
+
+      <footer class="app-footer" id="app-footer"></footer>
+    </div>
+  </div>
+
+  <div class="capa" id="capa"></div>
+
+  <script defer src="../js/utils.js"></script>
+  <script defer src="../js/datos/usuarios.js"></script>
+  <script defer src="../js/auth.js"></script>
+  <script defer src="../js/layout.js"></script>
+  <script defer src="../js/app.js"></script>
+  <script defer src="../js/pages/cliente.js"></script>
+</body>
+</html>

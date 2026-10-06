@@ -1,0 +1,45 @@
+/* ==========================================================================
+   pages/dashboard.css — Estilos del panel administrativo
+   (dashboard-admin.html)
+   ========================================================================== */
+
+.dashboard-metricas {
+  gap: 22px;
+}
+
+/* Los gráficos van lado a lado en pantallas grandes */
+.dashboard-graficos {
+  grid-template-columns: 1.35fr 1fr;
+  gap: 22px;
+  margin-top: 22px;
+}
+
+.dashboard-tabla {
+  margin-top: 22px;
+}
+
+/* Altura reservada para los lienzos de ApexCharts */
+.dashboard-graficos [id^="grafico-"] {
+  min-height: 320px;
+}
+
+/* --------------------------------------------------------------------------
+   Adaptación a pantallas medianas
+   -------------------------------------------------------------------------- */
+@media (max-width: 1100px) {
+  .dashboard-graficos {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .dashboard-metricas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .dashboard-metricas {
+    grid-template-columns: 1fr;
+  }
+}

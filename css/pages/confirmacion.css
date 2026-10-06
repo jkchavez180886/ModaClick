@@ -1,0 +1,140 @@
+/* ==========================================================================
+   pages/confirmacion.css — Estilos de la confirmación de pedido
+   (confirmacion-pedido.html)
+   ========================================================================== */
+
+.confirmacion-resumen-titulo {
+  font-size: 1.15rem;
+  margin-bottom: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   Totales del resumen
+   -------------------------------------------------------------------------- */
+.carrito-totales {
+  margin: 0 0 20px;
+}
+
+.carrito-totales > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 0;
+}
+
+.carrito-totales dt {
+  color: var(--texto-suave);
+  font-size: 0.88rem;
+}
+
+.carrito-totales dd {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.carrito-totales-final {
+  border-top: 1px solid var(--borde);
+  margin-top: 6px;
+  padding-top: 14px !important;
+}
+
+.carrito-totales-final dt,
+.carrito-totales-final dd {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--texto);
+}
+
+/* Producto dentro de la tabla */
+.confirmacion-producto {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.confirmacion-producto img {
+  width: 46px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: var(--superficie-2);
+  padding: 3px;
+  flex-shrink: 0;
+}
+
+.confirmacion-producto strong {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.confirmacion-producto span {
+  font-size: 0.76rem;
+  color: var(--texto-tenue);
+}
+
+/* --------------------------------------------------------------------------
+   Pedido confirmado (se muestra sobre la página)
+   -------------------------------------------------------------------------- */
+.confirmacion-exito {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 500;
+}
+
+.confirmacion-exito.abierta {
+  display: flex;
+}
+
+.confirmacion-exito-caja {
+  background: var(--superficie);
+  border-radius: var(--radio-lg);
+  border: 1px solid var(--borde);
+  box-shadow: var(--sombra-lg);
+  padding: 34px 30px;
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+.confirmacion-exito-icono {
+  width: 66px;
+  height: 66px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: var(--exito-suave);
+  color: var(--exito);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+}
+
+.confirmacion-exito-caja h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.confirmacion-exito-caja p {
+  font-size: 0.88rem;
+  margin-bottom: 6px;
+}
+
+.confirmacion-exito-codigo {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-weight: 700;
+  color: var(--marca-500);
+  margin: 14px 0 22px;
+}
+
+.confirmacion-exito-acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

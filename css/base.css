@@ -1,0 +1,268 @@
+/* ==========================================================================
+   base.css — Variables de diseño, reset, tipografía y utilidades básicas
+   Este es el ÚNICO archivo que define la paleta y las medidas del proyecto.
+   Para cambiar el color de la marca o el tamaño de los bordes, edita :root.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Variables de diseño
+   -------------------------------------------------------------------------- */
+:root {
+  /* Color de marca (azul ModaClick) */
+  --marca-50: #ecf3ff;
+  --marca-100: #dde9ff;
+  --marca-200: #c2d6ff;
+  --marca-300: #9cb9ff;
+  --marca-400: #7592ff;
+  --marca-500: #465fff;
+  --marca-600: #3641f5;
+  --marca-700: #2f38b8;
+  --marca-900: #1c2260;
+
+  /* Colores neutros */
+  --gris-50: #f9fafb;
+  --gris-100: #f1f5f9;
+  --gris-200: #e2e8f0;
+  --gris-300: #cbd5e1;
+  --gris-400: #94a3b8;
+  --gris-500: #64748b;
+  --gris-600: #475569;
+  --gris-700: #334155;
+  --gris-800: #1e293b;
+  --gris-900: #0f172a;
+  --gris-950: #020617;
+
+  /* Colores de estado */
+  --exito: #16a34a;
+  --exito-suave: #dcfce7;
+  --advertencia: #d97706;
+  --advertencia-suave: #fef3c7;
+  --peligro: #dc2626;
+  --peligro-suave: #fee2e2;
+  --info: #0284c7;
+  --info-suave: #e0f2fe;
+  --destacado: #92400e;
+  --destacado-suave: #fffbeb;
+  --destacado-borde: #f59e0b;
+
+  /* Superficies y texto (tema claro) */
+  --fondo: var(--gris-100);
+  --superficie: #ffffff;
+  --superficie-2: var(--gris-50);
+  --texto: var(--gris-800);
+  --texto-suave: var(--gris-500);
+  --texto-tenue: var(--gris-400);
+  --borde: var(--gris-200);
+  --borde-fuerte: var(--gris-300);
+  --overlay: rgba(15, 23, 42, 0.45);
+
+  /* Medidas */
+  --radio: 8px;
+  --radio-md: 12px;
+  --radio-lg: 16px;
+  --radio-full: 9999px;
+  --ancho-max: 1440px;
+  --alto-header: 64px;
+  --ancho-sidebar: 270px;
+
+  /* Sombras */
+  --sombra-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --sombra: 0 1px 4px rgba(15, 23, 42, 0.08);
+  --sombra-md: 0 4px 12px rgba(15, 23, 42, 0.10);
+  --sombra-lg: 0 12px 32px rgba(15, 23, 42, 0.14);
+
+  /* Tipografía */
+  --fuente: "Outfit", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont,
+    Roboto, sans-serif;
+
+  /* Transiciones */
+  --transicion: 0.2s ease;
+}
+
+/* --------------------------------------------------------------------------
+   2. Tema oscuro
+   Se activa con <html class="tema-oscuro">. La preferencia se guarda en
+   localStorage, la aplica js/app.js.
+   -------------------------------------------------------------------------- */
+.tema-oscuro {
+  --fondo: var(--gris-950);
+  --superficie: #131a2b;
+  --superficie-2: #1b2334;
+  --texto: #e8edf7;
+  --texto-suave: #a3aec4;
+  --texto-tenue: #7c8799;
+  --borde: #263049;
+  --borde-fuerte: #35415e;
+  --overlay: rgba(0, 0, 0, 0.65);
+
+  --marca-50: #1c2260;
+  --marca-100: #232a7d;
+
+  --exito-suave: #052e16;
+  --advertencia-suave: #3b1f02;
+  --peligro-suave: #450a0a;
+  --info-suave: #082f49;
+  --destacado: #fde68a;
+  --destacado-suave: #30220e;
+  --destacado-borde: #d97706;
+
+  --sombra-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --sombra: 0 1px 4px rgba(0, 0, 0, 0.45);
+  --sombra-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --sombra-lg: 0 12px 32px rgba(0, 0, 0, 0.6);
+}
+
+/* --------------------------------------------------------------------------
+   3. Reset
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fuente);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--texto);
+  background-color: var(--fondo);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color var(--transicion), color var(--transicion);
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+a {
+  color: var(--marca-500);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   4. Tipografía
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.25;
+  font-weight: 700;
+  color: var(--texto);
+}
+
+h1 { font-size: 1.85rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.2rem; }
+h4 { font-size: 1.05rem; }
+h5 { font-size: 0.95rem; }
+
+p { color: var(--texto-suave); }
+
+.titulo-pagina {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.texto-suave { color: var(--texto-suave); }
+.texto-tenue { color: var(--texto-tenue); }
+.texto-pequeno { font-size: 0.82rem; }
+.texto-centrado { text-align: center; }
+.texto-negrita { font-weight: 700; }
+.texto-mayusculas {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* --------------------------------------------------------------------------
+   5. Utilidades mínimas
+   Solo las que realmente se usan. Si necesitas más, agrégalalas aquí.
+   -------------------------------------------------------------------------- */
+.oculto { display: none !important; }
+.solo-lectores {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.fila {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fila-sep {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.columna {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.envoltura {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.crecer { flex: 1; }
+
+.sin-scroll::-webkit-scrollbar { display: none; }
+.sin-scroll { scrollbar-width: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}

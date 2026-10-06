@@ -1,0 +1,20 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+# Este proyecto es estático: si aparece node_modules es un error
+node_modules/
+npm-debug.log*
+package-lock.json
+yarn.lock
+
+# Archivos temporales
+*.tmp
+*.bak
+*~

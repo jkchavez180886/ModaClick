@@ -1,0 +1,53 @@
+/* ==========================================================================
+   pages/crud.css — Estilos compartidos por las páginas de mantenimiento
+   (clientes.html y pedidos.html): tabla con formulario, barra de
+   herramientas y botones de acción.
+   ========================================================================== */
+
+/* La tabla tiene muchas columnas: necesita scroll horizontal */
+.tabla-envoltura .tabla {
+  min-width: 900px;
+}
+
+/* Barra de herramientas sobre la tabla */
+.herramientas .campo-busqueda {
+  min-width: 220px;
+}
+
+/* Botones de editar y eliminar dentro de la tabla */
+.btn-accion + .btn-accion {
+  margin-left: 6px;
+}
+
+/* Botones al pie del formulario */
+.formulario-acciones {
+  border-top: 1px solid var(--borde);
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 18px;
+}
+
+/* Selector de estado sobre la tabla */
+.filtro-estado {
+  height: 42px;
+  border: 1px solid var(--borde-fuerte);
+  border-radius: var(--radio);
+  background: var(--superficie);
+  padding: 0 32px 0 12px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--texto);
+  outline: none;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .formulario-acciones {
+    flex-direction: column-reverse;
+  }
+
+  .formulario-acciones .btn {
+    width: 100%;
+  }
+}
