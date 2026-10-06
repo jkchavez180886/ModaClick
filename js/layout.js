@@ -26,8 +26,8 @@
 
 const MARCA = {
   nombre: "ModaClick",
-  lema: "Tu estilo, en un clic",
-  logo: "../assets/img/logo.png",
+  lema: "Tu Estilo en un Click",
+  logo: "../assets/img/marca-icono.svg",
 };
 
 const sesionLayout = obtenerUsuarioSesion();

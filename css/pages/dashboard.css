@@ -4,8 +4,13 @@
    ========================================================================== */
 
 .dashboard-metricas {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   gap: 22px;
 }
+
+.dashboard-metricas .metrica { min-width: 0; height: 100%; }
+.dashboard-metricas .metrica > div:last-child { min-width: 0; }
+.dashboard-metricas .metrica strong { display: block; overflow-wrap: anywhere; }
 
 /* Los gráficos van lado a lado en pantallas grandes */
 .dashboard-graficos {
@@ -34,7 +39,7 @@
 
 @media (max-width: 900px) {
   .dashboard-metricas {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 

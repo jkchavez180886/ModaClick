@@ -28,8 +28,7 @@ const CAMPOS_ENVIO = [
 function dibujarProductos() {
   const items = leerCarrito();
 
-  $("cuerpo-productos").innerHTML = items
-    .map((item) => {
+  $("cuerpo-productos").innerHTML = paginarFilas("cuerpo-productos", items, (item) => {
       const subtotal = item.precio * item.cantidad;
       return `
       <tr>
@@ -48,8 +47,7 @@ function dibujarProductos() {
         <td class="col-acciones">${moneda(item.precio)}</td>
         <td class="col-acciones">${moneda(subtotal)}</td>
       </tr>`;
-    })
-    .join("");
+    });
 
   const totales = resumenCarrito();
   $("pie-productos").innerHTML = `

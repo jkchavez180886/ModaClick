@@ -75,19 +75,14 @@ function dibujarMetricas(pedidos) {
   $("metricas").innerHTML = tarjetas
     .map(
       (t) => `
-    <div class="tarjeta">
-      <div class="tarjeta-cuerpo">
         <div class="metrica">
           <div class="metrica-icono ${t.clase}"><i class="${t.icono}"></i></div>
           <div>
             <span>${t.titulo}</span>
             <strong>${escapar(t.valor)}</strong>
           </div>
-        </div>
-      </div>
-    </div>`
-    )
-    .join("");
+        </div>`
+    ).join("");
 }
 
 /* --------------------------------------------------------------------------
@@ -274,20 +269,19 @@ function dibujarGraficoEstados(pedidos) {
    Tabla de pedidos recientes
    -------------------------------------------------------------------------- */
 
-/** Pinta los 5 pedidos más recientes. */
+/** Pinta los pedidos por fecha, en páginas de diez registros. */
 function dibujarPedidosRecientes(pedidos) {
   const recientes = [...pedidos]
-    .sort((a, b) => String(b.fechaPedido).localeCompare(String(a.fechaPedido)))
-    .slice(0, 5);
+    .sort((a, b) => String(b.fechaPedido).localeCompare(String(a.fechaPedido)));
 
   if (recientes.length === 0) {
+    paginarFilas("cuerpo-pedidos", [], () => "");
     $("cuerpo-pedidos").innerHTML =
       '<tr><td colspan="6" class="vacio">Aún no hay pedidos registrados.</td></tr>';
     return;
   }
 
-  $("cuerpo-pedidos").innerHTML = recientes
-    .map(
+  $("cuerpo-pedidos").innerHTML = paginarFilas("cuerpo-pedidos", recientes,
       (pedido) => `
     <tr>
       <td class="codigo-fila">${escapar(pedido.codigo)}</td>
@@ -297,8 +291,7 @@ function dibujarPedidosRecientes(pedidos) {
       <td>${pedido.total ? moneda(pedido.total) : "—"}</td>
       <td><span class="etiqueta ${colorEstadoPedido(pedido.estado)}">${escapar(pedido.estado)}</span></td>
     </tr>`
-    )
-    .join("");
+    );
 }
 
 /* --------------------------------------------------------------------------

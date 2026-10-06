@@ -127,3 +127,5 @@ La sesión usa `sessionStorage`. Carrito y datos de envío utilizan claves con e
 ## Paginación del catálogo
 
 El catálogo conserva las tarjetas y muestra 12 productos por página, con opciones de 24 o 48. Los controles Anterior, Siguiente y números de página se adaptan a pantallas pequeñas. La búsqueda, categoría y orden se aplican a todo el catálogo antes de paginar; cambiar esos filtros vuelve a la primera página. Los datos todavía se cargan completos en memoria; para catálogos grandes, la API deberá realizar filtros y paginación.
+
+Todas las tablas muestran **10 registros por página**, mediante el componente compartido `js/tablas.js`: usuarios, productos, clientes, pedidos, historial personal, pedidos recientes y artículos de confirmación. Cambiar filtros vuelve a la primera página; al eliminar registros se ajusta la página actual. Los totales de compra incluyen todos los artículos, independientemente de la página visible. Las credenciales de demostración se documentan aquí y ya no se muestran en el login.

@@ -576,3 +576,7 @@
 
 .campo-opcion { display:flex; align-items:center; gap:10px; min-height:44px; cursor:pointer; }
 .campo-opcion input { width:22px; height:22px; accent-color:var(--marca-500); }
+.tabla-paginacion { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; margin-top:16px; }
+.tabla-paginacion nav { display:flex; flex-wrap:wrap; align-items:center; gap:6px; }
+.tabla-paginacion .btn { min-width:44px; }
+@media(max-width:520px) { .tabla-paginacion { justify-content:center; } .tabla-paginacion nav { justify-content:center; } .tabla-paginacion .btn { padding:10px; } }

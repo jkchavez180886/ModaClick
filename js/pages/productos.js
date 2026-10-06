@@ -9,7 +9,7 @@ function sugerirCategoriasProducto() {
 function dibujarGestionProductos() {
   const texto = valorDe("buscar-productos").toLocaleLowerCase("es");
   const visibles = PRODUCTOS.filter(p => [p.nombre, p.categoria, p.equipo, p.id].join(" ").toLocaleLowerCase("es").includes(texto));
-  $("lista-productos").innerHTML = visibles.map(p =>
+  $("lista-productos").innerHTML = paginarFilas("lista-productos", visibles, p =>
     '<tr><td><div class="productos-fila"><img src="' + escapar(p.imagen) + '" alt="" loading="lazy" width="48" height="56">' +
     '<div><strong>' + escapar(p.nombre) + '</strong><small>' + escapar(p.id) + '</small>' +
     (p.destacado ? '<span class="etiqueta etiqueta-destacado">★ Destacado</span>' : '') + '</div></div></td>' +
@@ -17,8 +17,8 @@ function dibujarGestionProductos() {
     '<td>' + p.tallas.map(escapar).join(", ") + '</td><td>' + (p.stock <= 0
       ? '<span class="etiqueta neutra">Agotado</span>'
       : '<a href="' + enlaceProducto(p.id) + '" aria-label="Ver ' + escapar(p.nombre) + '">Ver producto</a>') + '</td></tr>'
-  ).join("") || '<tr><td colspan="6" class="vacio">No hay productos que coincidan con la búsqueda.</td></tr>';
-  $("conteo-gestion").textContent = "Mostrando " + visibles.length + " de " + PRODUCTOS.length + " productos";
+  , texto) || '<tr><td colspan="6" class="vacio">No hay productos que coincidan con la búsqueda.</td></tr>';
+  $("conteo-gestion").textContent = visibles.length + " de " + PRODUCTOS.length + " productos coinciden con la búsqueda";
 }
 function actualizarVistaProducto() {
   const destacado = $("nuevo-destacado").checked;

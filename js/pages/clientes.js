@@ -45,6 +45,7 @@ function dibujarClientes() {
   const todos = leerClientes();
   const visibles = filtrarClientes(todos, valorDe("buscar-cliente"));
   const cuerpo = $("cuerpo-clientes");
+  const filas = paginarFilas("cuerpo-clientes", visibles, htmlFilaCliente, valorDe("buscar-cliente"));
 
   if (visibles.length === 0) {
     const mensaje = todos.length
@@ -52,11 +53,11 @@ function dibujarClientes() {
       : "Aún no hay clientes. Usa «Nuevo cliente» para registrar el primero.";
     cuerpo.innerHTML = `<tr><td colspan="7" class="vacio">${mensaje}</td></tr>`;
   } else {
-    cuerpo.innerHTML = visibles.map(htmlFilaCliente).join("");
+    cuerpo.innerHTML = filas;
   }
 
   $("conteo-clientes").textContent =
-    `Mostrando ${visibles.length} de ${todos.length} clientes`;
+    `${visibles.length} de ${todos.length} clientes coinciden con la búsqueda`;
 }
 
 /* --------------------------------------------------------------------------

@@ -24,7 +24,8 @@
 }
 
 .login-logo {
-  width: 190px;
+  width: min(320px, 100%);
+  height: auto;
   margin-bottom: 26px;
   position: relative;
   z-index: 1;

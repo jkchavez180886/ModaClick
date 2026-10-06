@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const texto = valorDe("buscar-usuarios").toLowerCase();
     const rol = valorDe("filtrar-rol");
     const usuarios = leerUsuarios().filter(u => (!rol || u.rol === rol) && [u.nombre, u.correo].join(" ").toLowerCase().includes(texto));
-    $("lista-usuarios").innerHTML = usuarios.map(u => `<tr><td>${escapar(u.nombre)}</td><td>${escapar(u.correo)}</td><td><span class="etiqueta">${u.rol === "admin" ? "Admin" : "Estándar"}</span></td><td>${u.activo ? "Activo" : "Inactivo"}</td><td><button class="btn btn-secundario btn-pequeno" data-editar="${escapar(u.id)}">Editar</button></td></tr>`).join("");
+    $("lista-usuarios").innerHTML = paginarFilas("lista-usuarios", usuarios, u => `<tr><td>${escapar(u.nombre)}</td><td>${escapar(u.correo)}</td><td><span class="etiqueta">${u.rol === "admin" ? "Admin" : "Estándar"}</span></td><td>${u.activo ? "Activo" : "Inactivo"}</td><td><button class="btn btn-secundario btn-pequeno" data-editar="${escapar(u.id)}">Editar</button></td></tr>`, JSON.stringify([texto, rol]));
     $("conteo-usuarios").textContent = `${usuarios.length} usuarios`;
   }
   rellenar(gestion ? null : obtenerUsuarioSesion());

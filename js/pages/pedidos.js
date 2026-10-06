@@ -71,6 +71,7 @@ function dibujarPedidos() {
     $("filtro-estado-pedido").value
   );
   const cuerpo = $("cuerpo-pedidos");
+  const filas = paginarFilas("cuerpo-pedidos", visibles, htmlFilaPedido, JSON.stringify([valorDe("buscar-pedido"), $("filtro-estado-pedido").value]));
 
   if (visibles.length === 0) {
     const mensaje = todos.length
@@ -78,11 +79,11 @@ function dibujarPedidos() {
       : "Aún no hay pedidos registrados.";
     cuerpo.innerHTML = `<tr><td colspan="11" class="vacio">${mensaje}</td></tr>`;
   } else {
-    cuerpo.innerHTML = visibles.map(htmlFilaPedido).join("");
+    cuerpo.innerHTML = filas;
   }
 
   $("conteo-pedidos").textContent =
-    `Mostrando ${visibles.length} de ${todos.length} pedidos`;
+    `${visibles.length} de ${todos.length} pedidos coinciden con los filtros`;
 }
 
 /* --------------------------------------------------------------------------
