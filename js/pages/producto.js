@@ -180,13 +180,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* Comprar ahora: va directo a confirmar el pedido */
-  $("comprar-ahora").addEventListener("click", () => {
+  $("comprar-ahora").addEventListener("click", async (evento) => {
     if (productoActual.stock === 0) return;
     if (!tallaElegida) {
       mostrarAviso("Elige una talla primero", "error");
       return;
     }
     agregarAlCarrito(productoActual, tallaElegida, cantidadElegida);
-    window.location.href = "confirmacion-pedido.html";
+    const boton = evento.currentTarget;
+    boton.disabled = true;
+    try {
+      await continuarConPedido();
+    } finally {
+      boton.disabled = false;
+    }
   });
 });
