@@ -136,11 +136,17 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* Ir al pago */
-  $("btn-checkout").addEventListener("click", () => {
+  $("btn-checkout").addEventListener("click", async (evento) => {
     if (leerCarrito().length === 0) {
       mostrarAviso("Agrega productos antes de pagar", "error");
       return;
     }
-    window.location.href = "confirmacion-pedido.html";
+    const boton = evento.currentTarget;
+    boton.disabled = true;
+    try {
+      await continuarConPedido();
+    } finally {
+      boton.disabled = false;
+    }
   });
 });

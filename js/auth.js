@@ -1,5 +1,24 @@
 const PAGINAS_ADMIN = ["usuarios.html", "productos.html", "clientes.html", "pedidos.html", "dashboard-admin.html", "panel-admin.html"];
 const PAGINAS_SESION = ["perfil.html", "cliente.html", "mis-pedidos.html", "dashboard-usuario.html", "confirmacion-pedido.html"];
+
+/** Ofrece al invitado iniciar sesión antes de continuar con su compra. */
+async function continuarConPedido() {
+  if (obtenerUsuarioSesion()) {
+    location.href = "confirmacion-pedido.html";
+    return;
+  }
+  const iniciar = await confirmar(
+    "Inicia sesión para continuar",
+    "Para confirmar tu pedido necesitas iniciar sesión. Tu carrito se conservará. ¿Qué deseas hacer?",
+    {
+      textoAceptar: "Iniciar sesión",
+      textoCancelar: "Seguir navegando",
+      claseAceptar: "btn btn-primario",
+    }
+  );
+  if (iniciar) location.href = "../index.html?volver=confirmacion-pedido.html";
+}
+
 function comprobarAcceso() {
   const pagina = location.pathname.split("/").pop();
   const usuario = obtenerUsuarioSesion();

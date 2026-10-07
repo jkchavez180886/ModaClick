@@ -196,7 +196,7 @@ function mostrarAviso(mensaje, tipo = "info") {
  * @param {string} mensaje
  * @returns {Promise<boolean>}
  */
-function confirmar(titulo, mensaje) {
+function confirmar(titulo, mensaje, opciones = {}) {
   return new Promise((resolver) => {
     const modal = $("modal-confirmar");
     if (!modal) {
@@ -207,7 +207,17 @@ function confirmar(titulo, mensaje) {
 
     $("confirmar-titulo").textContent = titulo;
     $("confirmar-mensaje").textContent = mensaje;
+    const aceptar = $("confirmar-ok");
+    const cancelar = $("confirmar-cancelar");
+    const textoAceptar = aceptar.textContent;
+    const textoCancelar = cancelar.textContent;
+    const claseAceptar = aceptar.className;
+    const focoAnterior = document.activeElement;
+    aceptar.textContent = opciones.textoAceptar || textoAceptar;
+    cancelar.textContent = opciones.textoCancelar || textoCancelar;
+    if (opciones.claseAceptar) aceptar.className = opciones.claseAceptar;
     modal.classList.add("abierta");
+    cancelar.focus();
 
     const cerrar = (respuesta) => {
       modal.classList.remove("abierta");
@@ -215,11 +225,19 @@ function confirmar(titulo, mensaje) {
       $("confirmar-cancelar").onclick = null;
       modal.onclick = null;
       document.removeEventListener("keydown", alPulsarTecla);
+      aceptar.textContent = textoAceptar;
+      cancelar.textContent = textoCancelar;
+      aceptar.className = claseAceptar;
+      focoAnterior?.focus();
       resolver(respuesta);
     };
 
     const alPulsarTecla = (evento) => {
       if (evento.key === "Escape") cerrar(false);
+      if (evento.key === "Tab") {
+        evento.preventDefault();
+        (document.activeElement === cancelar ? aceptar : cancelar).focus();
+      }
     };
 
     $("confirmar-ok").onclick = () => cerrar(true);
